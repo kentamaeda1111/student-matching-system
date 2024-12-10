@@ -1,0 +1,146 @@
+/* src/web/static/style.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.form-section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox input {
+    margin-right: 10px;
+}
+
+.availability-grid {
+    overflow-x: auto;
+}
+
+.grid-header,
+.grid-row {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.grid-header {
+    font-weight: bold;
+    text-align: center;
+}
+
+.grid-row {
+    align-items: center;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.results-container {
+    margin-top: 30px;
+}
+
+.match-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.match-score {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.match-details {
+    margin-top: 10px;
+}
+
+.match-interests,
+.match-availability {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 2px;
+    font-size: 14px;
+} 

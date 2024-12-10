@@ -1,0 +1,154 @@
+<!-- src/web/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Matching System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Matching System</h1>
+        <form id="matchingForm">
+            <!-- Basic Information -->
+            <section class="form-section">
+                <h2>Basic Information</h2>
+                <div class="form-group">
+                    <label for="nickname">Nickname:</label>
+                    <input type="text" id="Child_Nickname" name="Child_Nickname" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <select id="Child_Age" name="Child_Age" required>
+                        <option value="">Select Age</option>
+                        {% for age in range(3, 14) %}
+                            <option value="{{ age }}">{{ age }} years old</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="Child_Gender" name="Child_Gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="region">Region:</label>
+                    <select id="Child_Region" name="Child_Region" required>
+                        <option value="Western America">Western America</option>
+                        <option value="Central America">Central America</option>
+                        <option value="Eastern America">Eastern America</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Interests -->
+            <section class="form-section">
+                <h2>Interests</h2>
+                <div class="interests-grid">
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="Interest_Science" name="Interest_Science">
+                        <label for="Interest_Science">Science</label>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="Interest_Coding_Game Design" name="Interest_Coding_Game Design">
+                        <label for="Interest_Coding_Game Design">Coding/Game Design</label>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="Interest_Reading_Writing" name="Interest_Reading_Writing">
+                        <label for="Interest_Reading_Writing">Reading/Writing</label>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="Interest_Engineering" name="Interest_Engineering">
+                        <label for="Interest_Engineering">Engineering</label>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="Interest_Art" name="Interest_Art">
+                        <label for="Interest_Art">Art</label>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="Interest_Music" name="Interest_Music">
+                        <label for="Interest_Music">Music</label>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="Interest_Math" name="Interest_Math">
+                        <label for="Interest_Math">Math</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Availability -->
+            <section class="form-section">
+                <h2>Availability</h2>
+                <div class="availability-grid">
+                    <div class="grid-header">
+                        <div></div>
+                        <div>Morning</div>
+                        <div>Afternoon</div>
+                        <div>Evening</div>
+                    </div>
+                    {% for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+                    <div class="grid-row">
+                        <div>{{ day }}</div>
+                        {% for time in ['Morning', 'Afternoon', 'Evening'] %}
+                        <div>
+                            <input type="checkbox" 
+                                   id="Available_Time_{{ day }}_{{ time }}" 
+                                   name="Available_Time_{{ day }}_{{ time }}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <!-- Preferences -->
+            <section class="form-section">
+                <h2>Preferences</h2>
+                <div class="form-group">
+                    <label for="Preference_Interaction_Outside_Class">Interaction Outside Class:</label>
+                    <select id="Preference_Interaction_Outside_Class" name="Preference_Interaction_Outside_Class" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Decide Later">Decide Later</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Preference_Overlapping_Time">Importance of Overlapping Time:</label>
+                    <select id="Preference_Overlapping_Time" name="Preference_Overlapping_Time" required>
+                        <option value="Important">Important</option>
+                        <option value="Not Important">Not Important</option>
+                        <option value="Neutral">Neutral</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Preference_Similar_Age">Importance of Similar Age:</label>
+                    <select id="Preference_Similar_Age" name="Preference_Similar_Age" required>
+                        <option value="Important">Important</option>
+                        <option value="Not Important">Not Important</option>
+                        <option value="Neutral">Neutral</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Preference_Same_Gender">Importance of Same Gender:</label>
+                    <select id="Preference_Same_Gender" name="Preference_Same_Gender" required>
+                        <option value="Important">Important</option>
+                        <option value="Not Important">Not Important</option>
+                        <option value="Neutral">Neutral</option>
+                    </select>
+                </div>
+            </section>
+
+            <button type="submit" class="submit-btn">Find Matches</button>
+        </form>
+        
+        <div id="results" class="results-container">
+            <!-- Matching results will be displayed here -->
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
